@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew_router::{prelude::*, navigator};
 mod components;
-use components::Home::Home;
+use components::home::Home;
 use components::camera::Camera;
 
 

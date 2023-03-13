@@ -12,8 +12,10 @@ pub struct button_router {
 pub fn button(props: &button_router) -> Html {  
     let url = props.destination.clone();
     html! {
-        <a href={url}>
-            <button>{&props.title}</button>
+        <a href={url} class="col p-0 mx-auto mt-4 w-50">
+            <button type="button" class="btn btn-outline-success w-100 h-100 border border-secondary rounded-3 py-2 h2 fw-bold">
+                {&props.title}
+            </button>
         </a>
     }
 }
