@@ -1,11 +1,7 @@
-use yew::{function_component, html, Html, Properties, Callback, MouseEvent};
-use yew_router::{prelude::*, navigator};
-
-use yew::prelude::*;
+use yew::{function_component, html, Html};
 
 #[function_component(Result)]
 pub fn result() -> Html {
-
     html! {
       <>
         <a href="/view">
@@ -13,4 +9,4 @@ pub fn result() -> Html {
         </a>
       </>
     }
-  }
+}

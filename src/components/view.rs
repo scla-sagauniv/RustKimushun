@@ -1,12 +1,8 @@
-use yew::{function_component, html, Html, Properties, Callback, MouseEvent};
-use yew_router::{prelude::*, navigator};
 use crate::components::button::Button;
-
-use yew::prelude::*;
+use yew::{function_component, html, Html};
 
 #[function_component(View)]
 pub fn view() -> Html {
-
     html! {
       <>
           <div class="container mt-5 py-5">
@@ -20,4 +16,4 @@ pub fn view() -> Html {
           </div>
       </>
     }
-  }
+}

@@ -1,12 +1,12 @@
 use yew::prelude::*;
-use yew_router::{navigator, prelude::*};
+use yew_router::prelude::*;
 mod components;
 use components::camera::Camera;
 use components::display::Display;
 use components::home::Home;
+use components::result::Result;
 use components::scan::Scan;
 use components::view::View;
-use components::result::Result;
 
 fn main() {
     yew::Renderer::<App>::new().render();
@@ -57,10 +57,10 @@ fn switch(routes: Route) -> Html {
             <Display />
         },
         Route::View => html! {
-            <View /> 
+            <View />
         },
         Route::Result => html! {
-            <Result /> 
+            <Result />
         },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
