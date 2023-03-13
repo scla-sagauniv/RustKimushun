@@ -3,6 +3,8 @@ use yew_router::{prelude::*, navigator};
 mod components;
 use components::home::Home;
 use components::camera::Camera;
+use components::view::View;
+use components::result::Result;
 
 
 fn main() {
@@ -27,6 +29,10 @@ pub enum Route {
     Home,
     #[at("/camera")]
     Camera,
+    #[at("/view")]
+    View,
+    #[at("/result")]
+    Result,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -40,6 +46,12 @@ fn switch(routes: Route) -> Html {
         },
         Route::Camera => html! {
             <Camera /> 
+        },
+        Route::View => html! {
+            <View /> 
+        },
+        Route::Result => html! {
+            <Result /> 
         },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
