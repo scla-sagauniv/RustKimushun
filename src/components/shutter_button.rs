@@ -1,14 +1,14 @@
 use yew::{function_component, html, Html, Properties};
 
 #[derive(Properties, PartialEq)] // Properties, PartialEq を継承した構造体を作成
-pub struct button_router {
+pub struct ButtonRouter {
     pub title: String,
     pub destination: String,
 }
 
 #[function_component(ShutterButton)]
 // pub fn button(props: &button_router) -> Html {
-pub fn button(props: &button_router) -> Html {
+pub fn button(props: &ButtonRouter) -> Html {
     let url = props.destination.clone();
     html! {
         <a href={url}>
