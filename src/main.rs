@@ -2,6 +2,7 @@ use yew::prelude::*;
 use yew_router::{navigator, prelude::*};
 mod components;
 use components::camera::Camera;
+use components::display::Display;
 use components::home::Home;
 use components::scan::Scan;
 
@@ -28,6 +29,8 @@ pub enum Route {
     Camera,
     #[at("/scan")]
     Scan,
+    #[at("/display")]
+    Display,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -43,6 +46,9 @@ fn switch(routes: Route) -> Html {
         },
         Route::Scan => html! {
             <Scan />
+        },
+        Route::Display => html! {
+            <Display />
         },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
