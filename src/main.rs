@@ -5,6 +5,8 @@ use components::camera::Camera;
 use components::display::Display;
 use components::home::Home;
 use components::scan::Scan;
+use components::view::View;
+use components::result::Result;
 
 fn main() {
     yew::Renderer::<App>::new().render();
@@ -31,6 +33,10 @@ pub enum Route {
     Scan,
     #[at("/display")]
     Display,
+    #[at("/view")]
+    View,
+    #[at("/result")]
+    Result,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -49,6 +55,12 @@ fn switch(routes: Route) -> Html {
         },
         Route::Display => html! {
             <Display />
+        },
+        Route::View => html! {
+            <View /> 
+        },
+        Route::Result => html! {
+            <Result /> 
         },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
