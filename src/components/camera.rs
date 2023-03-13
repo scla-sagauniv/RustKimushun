@@ -12,7 +12,7 @@ pub fn camera() -> Html {
               <h3>{"作成"}</h3>
             </div>
             <div class="position-absolute bottom-0 mb-5">
-              <ShutterButton title={""} destination={"/"}/>
+              <ShutterButton title={""} destination={"/view"}/>
             </div>
           </div>
         </div>
