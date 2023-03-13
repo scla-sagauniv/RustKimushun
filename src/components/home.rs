@@ -1,6 +1,6 @@
-use yew::{function_component, html, Html, Properties};
-use yew_router::{prelude::*, navigator};
 use crate::components::button::Button;
+use yew::{function_component, html, Html, Properties};
+use yew_router::{navigator, prelude::*};
 
 #[function_component(Home)]
 pub fn home() -> Html {
@@ -12,10 +12,9 @@ pub fn home() -> Html {
           </div>
           <div class="row d-flex justify-content-center flex-column mt-5">
             <Button title={"作成"} destination={"/camera"}/>
-            <Button title={"読み取り"} destination={"/"}/>
+            <Button title={"読み取り"} destination={"/scan"}/>
           </div>
         </div>
       </>
     }
 }
-
