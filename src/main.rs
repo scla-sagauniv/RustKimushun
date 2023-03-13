@@ -1,11 +1,12 @@
 use yew::prelude::*;
-use yew_router::{prelude::*, navigator};
+use yew_router::{navigator, prelude::*};
 mod components;
-use components::home::Home;
 use components::camera::Camera;
+use components::display::Display;
+use components::home::Home;
+use components::scan::Scan;
 use components::view::View;
 use components::result::Result;
-
 
 fn main() {
     yew::Renderer::<App>::new().render();
@@ -22,13 +23,16 @@ pub fn app() -> Html {
     }
 }
 
-
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
     #[at("/")]
     Home,
     #[at("/camera")]
     Camera,
+    #[at("/scan")]
+    Scan,
+    #[at("/display")]
+    Display,
     #[at("/view")]
     View,
     #[at("/result")]
@@ -38,14 +42,19 @@ pub enum Route {
     NotFound,
 }
 
-
 fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! {
-            <Home /> 
+            <Home />
         },
         Route::Camera => html! {
-            <Camera /> 
+            <Camera />
+        },
+        Route::Scan => html! {
+            <Scan />
+        },
+        Route::Display => html! {
+            <Display />
         },
         Route::View => html! {
             <View /> 
@@ -56,4 +65,3 @@ fn switch(routes: Route) -> Html {
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
 }
-
