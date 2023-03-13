@@ -1,10 +1,9 @@
-use yew::{function_component, html, Html, Properties};
-use yew_router::{prelude::*, navigator};
-use crate::components::button::Button;
+use crate::components::back_button::BackButton;
+use yew::{function_component, html, Html};
 
 #[function_component(Camera)]
 pub fn camera() -> Html {
     html! {
-      <h1>{"camera"}</h1>
+      <BackButton title={""} destination={"/"}/>
     }
 }
