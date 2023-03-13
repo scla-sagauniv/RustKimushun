@@ -1,12 +1,47 @@
 use yew::prelude::*;
+use yew_router::{prelude::*, navigator};
+mod components;
+use components::Home::Home;
+use components::camera::Camera;
+
+
+fn main() {
+    yew::Renderer::<App>::new().render();
+}
 
 #[function_component(App)]
-fn app() -> Html {
+pub fn app() -> Html {
     html! {
-        <h1>{ "Hello World" }</h1>
+        <>
+            <BrowserRouter>
+                <Switch<Route> render={switch} /> // <- must be child of <BrowserRouter>
+            </BrowserRouter>
+        </>
     }
 }
 
-fn main() {
-    yew::start_app::<App>();
+
+#[derive(Clone, Routable, PartialEq)]
+pub enum Route {
+    #[at("/")]
+    Home,
+    #[at("/camera")]
+    Camera,
+    #[not_found]
+    #[at("/404")]
+    NotFound,
 }
+
+
+fn switch(routes: Route) -> Html {
+    match routes {
+        Route::Home => html! {
+            <Home /> 
+        },
+        Route::Camera => html! {
+            <Camera /> 
+        },
+        Route::NotFound => html! { <h1>{ "404" }</h1> },
+    }
+}
+
