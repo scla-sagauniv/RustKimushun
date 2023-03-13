@@ -12,7 +12,7 @@ pub fn button(props: &button_router) -> Html {
     let url = props.destination.clone();
     html! {
       <a href={url}>
-        <button type="button" class="btn btn-outline-light px-0" style="position: absolute; padding: 10px; left: 10px; top: 10px; color: tomato">
+        <button type="button" class="btn btn-outline-light px-0" style="position: absolute; padding: 10px; left: 20px; top: 20px; color: tomato">
           <i class="fa-regular fa-circle-left fa-2xl"></i>
         </button>
       </a>
