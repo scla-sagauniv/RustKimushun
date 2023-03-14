@@ -1,30 +1,39 @@
 use crate::components::{back_button::BackButton, shutter_button::ShutterButton};
-use wasm_bindgen::prelude::*;
-use yew::{function_component, html, Html, use_effect_with_deps};
+use wasm_bindgen::prelude::wasm_bindgen;
+use yew::{function_component, html, use_effect_with_deps, Html, MouseEvent};
 
 #[function_component(Scan)]
 pub fn scan() -> Html {
-  fn test() {
+    fn test() {
+        #[wasm_bindgen(module = "/src/js/script.js")]
+        extern "C" {
+            fn displayCaps();
+        }
 
-  #[wasm_bindgen(module="/src/js/script.js")]
-    extern "C"{
-        fn displayCaps();
+        #[wasm_bindgen]
+        pub fn temp() {
+            displayCaps()
+        }
+        temp();
     }
-
-  #[wasm_bindgen]
-    pub fn temp (){
-      displayCaps()
+    use_effect_with_deps(
+        move |_| {
+            wasm_bindgen_futures::spawn_local(async move {
+                test();
+            });
+            || ()
+        },
+        (),
+    );
+    // こんな感じで呼び出す
+    #[wasm_bindgen(module = "/src/logic/encode.js")]
+    extern "C" {
+        fn encode(path: String) -> String;
     }
-    temp();
-  }
-  use_effect_with_deps(move |_| {
-      wasm_bindgen_futures::spawn_local(async move {
-          test();
-      });
-      || ()
-  }, ());
-  
-  html! {
+    let onclick = move |_: MouseEvent| {
+        encode(String::from("/cat.png"));
+    };
+    html! {
     // プロパティの値は、リテラルか中括弧で囲む必要があります。式を囲む中括弧の追加を検討してください。
       <>
         <div class="container p-0">
@@ -35,7 +44,7 @@ pub fn scan() -> Html {
             <div class="position-absolute top-0 mt-5">
               <h5 class="text-white">{"QRコードを読み取ってください"}</h5>
             </div>
-            <div class="position-absolute bottom-0 mb-5">
+            <div class="position-absolute bottom-0 mb-5" onclick={onclick}>
               <ShutterButton title={""} destination={"#"}/>
             </div>
             </div>

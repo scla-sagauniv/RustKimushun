@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 mod components;
+pub mod logic;
 use components::camera::Camera;
 use components::display::Display;
 use components::home::Home;
