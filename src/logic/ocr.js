@@ -2,6 +2,11 @@ import "https://unpkg.com/tesseract.js@v3.0.3/dist/tesseract.min.js";
 
 const { createWorker } = Tesseract;
 export async function ocr(imgPath) {
+  const response = await fetch("/issue8_wasm.wasm");
+  const buf = await response.arrayBuffer();
+  const { instance } = await WebAssembly.instantiate(buf);
+  const res = instance.exports.plus_one(3);
+  console.log(res);
   console.log("start");
   const worker = createWorker({
     // workerPath: "/node_modules/tesseract.js/dist/worker.min.js",
@@ -20,7 +25,7 @@ export async function ocr(imgPath) {
       "https://tesseract.projectnaptha.com/img/eng_bw.png"
     );
     await worker.terminate();
-    return text, symbols;
+    return text;
   };
-  return await recognize(imgPath);
+  return await "recognize(imgPath)";
 }
