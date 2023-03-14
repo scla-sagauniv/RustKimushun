@@ -39,8 +39,8 @@ pub fn scan() -> Html {
               <ShutterButton title={""} destination={"#"}/>
             </div>
             </div>
-            <video id="camera" width="375" height="667" style="z-index: -1;" class="w-100 h-100 position-absolute top-0"></video>
-            <canvas id="picture" width="375" height="667" style="z-index: -1;" class="w-100 h-100 position-absolute top-0"></canvas>
+            <video id="camera" width="375" height="667" style="z-index: -1;" class="position-absolute top-0"></video>
+            <canvas id="picture" width="375" height="667" style="z-index: -1;" class="position-absolute top-0"></canvas>
         </div>
       </>
     }
