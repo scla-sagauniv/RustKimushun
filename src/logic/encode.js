@@ -33,6 +33,9 @@ async function ocr(imgPath) {
     await worker.load();
     await worker.loadLanguage("eng");
     await worker.initialize("eng");
+    await worker.setParameters({
+      tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+    });
     const {
       data: { text, symbols },
     } = await worker.recognize(
