@@ -1,8 +1,23 @@
 use crate::components::{back_button::BackButton, shutter_button::ShutterButton};
-use yew::{function_component, html, Html};
+use wasm_bindgen::prelude::wasm_bindgen;
+use yew::{function_component, html, Html, MouseEvent};
 
 #[function_component(Scan)]
 pub fn scan() -> Html {
+    fn ocr(path: String) {
+        #[wasm_bindgen(module = "/src/logic/ocr.js")]
+        extern "C" {
+            fn ocr(path: String);
+        }
+        #[wasm_bindgen]
+        pub fn temp(path: String) {
+            ocr(path)
+        }
+        temp(path);
+    }
+    let onclick = move |_: MouseEvent| {
+        ocr(String::from("/cat.png"));
+    };
     html! {
       <>
       <div class="container">
@@ -11,7 +26,7 @@ pub fn scan() -> Html {
         <div class="position-absolute top-0 mt-4">
           <h3>{"QRコードを読み取ってください"}</h3>
         </div>
-        <div class="position-absolute bottom-0 mb-5">
+        <div class="position-absolute bottom-0 mb-5" onclick={onclick}>
           <ShutterButton title={""} destination={"/display"}/>
         </div>
       </div>
