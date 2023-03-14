@@ -836,7 +836,6 @@ dependencies = [
  "gloo-file",
  "image",
  "js-sys",
- "image",
  "log",
  "wasm-bindgen",
  "wasm-bindgen-futures",

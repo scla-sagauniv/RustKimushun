@@ -9,9 +9,9 @@ pub fn camera() -> Html {
     html! {
         <>
         <div class="d-flex justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
-          <div class="d-flex flex-column align-items-center" style="max-height: 100vh;">
-            <div class="row d-flex justify-content-center text-center my-2">
-              <h1 class="col text-success display-3 fw-bold">{"タイトルタイトル"}</h1>
+          <div class="d-flex flex-column align-items-center style=max-height: 100vh;">
+            <div class="d-flex justify-content-center text-center my-2">
+              <h1 class="text-success display-3 fw-bold">{"タイトルタイトル"}</h1>
             </div>
             <FileDataComponent/>
           </div>
@@ -114,7 +114,7 @@ impl FileDataComponent {
     fn view_file(data: &str) -> Html {
         let img = format!("data:image/png;base64,{}", data.to_string());
         html! {
-          <img src={img} style="max-height: 450px; max-width: 70vw;"/>
+          <img src={img} style="max-height: 30vh; max-width: 70vw;"/>
         }
     }
 }
