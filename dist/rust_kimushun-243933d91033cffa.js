@@ -1,3 +1,5 @@
+import * as __wbg_star0 from './snippets/rust_kimushun-db845493a32ad98f/src/js/script.js';
+
 let wasm;
 
 const heap = new Array(128).fill(undefined);
@@ -229,6 +231,18 @@ function __wbg_adapter_37(arg0, arg1, arg2) {
     } finally {
         heap[stack_pointer++] = undefined;
     }
+}
+
+/**
+*/
+export function temp2() {
+    wasm.temp2();
+}
+
+/**
+*/
+export function temp() {
+    wasm.temp();
 }
 
 let cachedUint32Memory0 = null;
@@ -760,14 +774,15 @@ function getImports() {
         const ret = wasm.memory;
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper6875 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 555, __wbg_adapter_34);
+    imports.wbg.__wbindgen_closure_wrapper7470 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 677, __wbg_adapter_34);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper7166 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 569, __wbg_adapter_37);
+    imports.wbg.__wbindgen_closure_wrapper7761 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 691, __wbg_adapter_37);
         return addHeapObject(ret);
     };
+    imports['./snippets/rust_kimushun-db845493a32ad98f/src/js/script.js'] = __wbg_star0;
 
     return imports;
 }
@@ -804,7 +819,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('rust_kimushun-984f21757f326f0a_bg.wasm', import.meta.url);
+        input = new URL('rust_kimushun-243933d91033cffa_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

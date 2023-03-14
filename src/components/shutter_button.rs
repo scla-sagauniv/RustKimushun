@@ -12,12 +12,14 @@ pub fn button(props: &ButtonRouter) -> Html {
     let url = props.destination.clone();
     html! {
         <a href={url}>
-            <button type="button" class="btn btn-outline-light" style="color: tomato;">
+          <form>
+            <button id="shutter" type="button" class="btn border-0" style="color: tomato;">
               <span class="fa-stack fa-2x">
                 <i class="fa-solid fa-camera fa-stack-1x"></i>
                 <i class="fa-regular fa-circle fa-stack-2x"></i>
               </span>
             </button>
+          </form>
         </a>
     }
 }
