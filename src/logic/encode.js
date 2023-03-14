@@ -1,10 +1,9 @@
 import "https://unpkg.com/tesseract.js@v3.0.3/dist/tesseract.min.js";
 
-const response = await fetch("/issue8_wasm.wasm");
-const buf = await response.arrayBuffer();
-const { instance } = await WebAssembly.instantiate(buf);
-
 export async function encode(img) {
+  const response = await fetch("/issue8_wasm.wasm");
+  const buf = await response.arrayBuffer();
+  const { instance } = await WebAssembly.instantiate(buf);
   const images /*Vec<DynamicImage>*/ = instance.exports.img_split(
     img /*DynamicImage*/
   );
