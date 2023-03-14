@@ -4,19 +4,13 @@ use yew::{function_component, html, Html, MouseEvent};
 
 #[function_component(Scan)]
 pub fn scan() -> Html {
-    fn ocr(path: String) {
-        #[wasm_bindgen(module = "/src/logic/ocr.js")]
-        extern "C" {
-            fn ocr(path: String);
-        }
-        #[wasm_bindgen]
-        pub fn temp(path: String) {
-            ocr(path)
-        }
-        temp(path);
+    // こんな感じで呼び出す
+    #[wasm_bindgen(module = "/src/logic/encode.js")]
+    extern "C" {
+        fn encode(path: String) -> String;
     }
     let onclick = move |_: MouseEvent| {
-        ocr(String::from("/cat.png"));
+        encode(String::from("/cat.png"));
     };
     html! {
       <>
