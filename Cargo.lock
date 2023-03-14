@@ -828,7 +828,9 @@ dependencies = [
  "image",
  "log",
  "wasm-bindgen",
+ "wasm-bindgen-futures",
  "wasm-logger",
+ "web-sys",
  "yew",
  "yew-router",
 ]
