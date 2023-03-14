@@ -1,6 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 mod components;
+pub mod logic;
 use components::camera::Camera;
 use components::display::Display;
 use components::home::Home;
@@ -9,6 +10,7 @@ use components::scan::Scan;
 use components::view::View;
 
 fn main() {
+    wasm_logger::init(wasm_logger::Config::default());
     yew::Renderer::<App>::new().render();
 }
 
