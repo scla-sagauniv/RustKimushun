@@ -1,4 +1,5 @@
 use crate::components::{back_button::BackButton, shutter_button::ShutterButton};
+use image::DynamicImage;
 use wasm_bindgen::prelude::wasm_bindgen;
 use yew::{function_component, html, use_effect_with_deps, Html, MouseEvent};
 
@@ -25,14 +26,6 @@ pub fn scan() -> Html {
         },
         (),
     );
-    // こんな感じで呼び出す
-    #[wasm_bindgen(module = "/src/logic/encode.js")]
-    extern "C" {
-        fn encode(path: String) -> String;
-    }
-    let onclick = move |_: MouseEvent| {
-        encode(String::from("/cat.png"));
-    };
     html! {
     // プロパティの値は、リテラルか中括弧で囲む必要があります。式を囲む中括弧の追加を検討してください。
       <>
@@ -44,7 +37,7 @@ pub fn scan() -> Html {
             <div class="position-absolute top-0 mt-5">
               <h5 class="text-white">{"QRコードを読み取ってください"}</h5>
             </div>
-            <div class="position-absolute bottom-0 mb-5" onclick={onclick}>
+            <div class="position-absolute bottom-0 mb-5">
               <ShutterButton title={""} destination={"#"}/>
             </div>
             </div>
