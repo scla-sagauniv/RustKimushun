@@ -3,19 +3,27 @@ use std::collections::HashMap;
 use std::io::{Read, Seek, SeekFrom};
 use web_sys::{Event, HtmlInputElement};
 use yew::prelude::*;
+use crate::components::{back_button::BackButton, shutter_button::ShutterButton};
 
 #[function_component(Camera)]
 pub fn camera() -> Html {
     html! {
         <>
-        <div class="d-flex justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
-          <div class="d-flex flex-column align-items-center style=max-height: 100vh;">
-            <div class="d-flex justify-content-center text-center my-2">
-              <h1 class="text-success display-3 fw-bold">{"タイトルタイトル"}</h1>
+          <div class="position-absolute" style="left: 17px; margin-top: 25px; top: 18px;">
+            <a href="/">
+              <button type="button" class="btn border-0 px-0 text-success">
+                <i class="fa-regular fa-circle-left fa-2xl"></i>
+              </button>
+            </a>
+          </div>          
+          <div class="d-flex justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
+            <div class="d-flex flex-column align-items-center style=max-height: 100vh;">
+              <div class="d-flex justify-content-center text-center my-2">
+                <h1 class="text-success display-3 fw-bold">{"タイトルタイトル"}</h1>
+              </div>
+              <FileDataComponent/>
             </div>
-            <FileDataComponent/>
           </div>
-        </div>
         </>
     }
 }
