@@ -45,7 +45,7 @@ pub fn scan() -> Html {
               <h5 class="text-white">{"QRコードを読み取ってください"}</h5>
             </div>
             <div class="position-absolute bottom-0 mb-5" onclick={onclick}>
-              <ShutterButton title={""} destination={"#"}/>
+              <ShutterButton title={""} destination={"/display"}/>
             </div>
             </div>
             <video id="camera" width="375" height="667" style="z-index: -1;" class="position-absolute top-0"></video>
